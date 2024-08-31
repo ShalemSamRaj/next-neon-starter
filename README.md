@@ -21,7 +21,7 @@ If you're looking to build a Next.js app, this starter project can help you get 
 
 ## Purpose of choosing this stack
 
-I chose this stack because it combines the best of modern web development tools. Next.js is a powerful framework for building React applications with features like server-side rendering and API routes. Using Auth.js makes handling authentication straightforward and secure, which is crucial for any application. Prisma is the rising star when it comes to relational databases.
+I chose this stack because it combines the best of modern web development tools. Next.js is a powerful framework for building React applications with features like server-side rendering and API routes. Using Auth.js makes handling authentication straightforward and secure, which is crucial for any application. Prisma is the rising star when it comes to relational databases which i used here as my ORM.
 
 I decided to use Neon because it’s a serverless relational database, meaning it automatically scales with demand and I don’t have to manage the server. This makes it a great choice for projects where you want to minimize infrastructure management. Neon offers the flexibility and reliability of a traditional relational database like PostgreSQL, but with the ease of a serverless setup.
 
@@ -69,7 +69,15 @@ Throughout this project, I learned a lot about integrating serverless databases 
     - you can create a LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET from [Linkedin Dev Tools](https://www.linkedin.com/developers/apps) by creating a new project. While Setting the Redirect URL(http://localhost:3000/api/auth/callback/linkedin) you need to follow these [Auth.js docs](https://authjs.dev/getting-started/providers/linkedin) for linkedin oauth. while creating project in linkedin, you have to create a page for your organisation which is free of cost.
 
 4. You can even use .env.local file to copy the env variables into .env and updating with your values
-5. Finally, Run the following command to start the project in dev mode
+5. Run the following command to generate prisma model in root of your project
+    ```js
+        npx prisma generate
+    ```
+6. To sync your models to serverless neon db run the below command in root of your project
+   ```js
+    npx prisma db push
+   ```
+7. Finally, Run the following command to start the project in dev mode
     ```js
         npm run dev
     ```
